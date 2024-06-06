@@ -570,16 +570,16 @@ video {
   inset: 0px;
 }
 
-.bottom-10 {
-  bottom: 2.5rem;
+.bottom-5 {
+  bottom: 1.25rem;
 }
 
 .right-2 {
   right: 0.5rem;
 }
 
-.right-8 {
-  right: 2rem;
+.right-5 {
+  right: 1.25rem;
 }
 
 .top-2 {
@@ -618,8 +618,8 @@ video {
   height: 6rem;
 }
 
-.h-\[100wh\] {
-  height: 100wh;
+.h-8 {
+  height: 2rem;
 }
 
 .h-\[100vh\] {
@@ -660,10 +660,6 @@ video {
 
 .justify-between {
   justify-content: space-between;
-}
-
-.overflow-hidden {
-  overflow: hidden;
 }
 
 .truncate {
@@ -756,11 +752,6 @@ video {
   padding-right: 1.25rem;
 }
 
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -770,8 +761,9 @@ video {
   text-align: center;
 }
 
-.font-fontClicker {
-  font-family: Clicker Script, cursive;
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-3xl {
@@ -790,10 +782,6 @@ video {
 
 .font-semibold {
   font-weight: 600;
-}
-
-.leading-tight {
-  line-height: 1.25;
 }
 
 .text-gray-500 {
@@ -821,10 +809,6 @@ video {
 .duration-300 {
   transition-duration: 300ms;
 }
-
-/* footer .text {
-  font-family: "Clicker Script", cursive;
-} */
 
 .hover\:bg-customRed:hover {
   --tw-bg-opacity: 1;
