@@ -894,6 +894,15 @@ window.onload = function () {
     colors = JSON.parse(storedColors);
     drawWheel();
   }
+
+  // Ajoutez l'écouteur d'événements ici
+  document
+    .getElementById("participantInput")
+    .addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        addParticipant();
+      }
+    });
 };
 
 window.addParticipant = function () {
@@ -935,7 +944,7 @@ function drawWheel() {
     ctx.translate(radius, radius);
     ctx.rotate(angle + arc / 2);
     ctx.textAlign = "right";
-    ctx.fillStyle = "#000";
+    ctx.fillStyle = "#000"; // Changez la couleur des noms ici
     ctx.font = "20px Arial";
     ctx.fillText(participants[i], radius - 10, 10);
     ctx.restore();
@@ -997,6 +1006,7 @@ function showResultModal(winner) {
   modal.classList.remove("hidden");
   modal.classList.add("flex");
 
+  // Add confetti when modal appears
   confetti({
     particleCount: 1000,
     spread: 360,

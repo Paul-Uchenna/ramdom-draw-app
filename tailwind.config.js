@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         customRed: "#d90000",
       },
+      fontFamily: {
+        fontClicker: ["Clicker Script, cursive"],
+      },
     },
   },
   plugins: [],
