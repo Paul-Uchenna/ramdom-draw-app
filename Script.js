@@ -3,6 +3,7 @@ const confetti = require("canvas-confetti");
 let participants = [];
 let colors = [];
 let spinning = false;
+let rotationSpeed = Math.PI / 20; // Vitesse de rotation constante
 
 window.onload = function () {
   const storedParticipants = localStorage.getItem("participants");
@@ -89,7 +90,7 @@ window.spinWheel = function () {
   const arc = Math.PI / (participants.length / 2);
   let angle = 0;
   let spinTime = 0;
-  const spinTimeTotal = 3000;
+  const spinTimeTotal = 3000; // 3 seconds
 
   function rotateWheel() {
     spinTime += 20;
@@ -105,7 +106,7 @@ window.spinWheel = function () {
       spinning = false;
       return;
     }
-    angle += Math.PI / participants.length / 5;
+    angle += rotationSpeed;
     ctx.save();
     ctx.translate(radius, radius);
     ctx.rotate(angle);
@@ -120,7 +121,7 @@ window.spinWheel = function () {
 function showResultModal(winner) {
   const modal = document.getElementById("resultModal");
   const resultText = document.getElementById("result");
-  resultText.innerHTML = `Félicitation à : ${winner}`;
+  resultText.innerHTML = `Félicitations à : ${winner}`;
   modal.classList.remove("hidden");
   modal.classList.add("flex");
 
