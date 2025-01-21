@@ -8,54 +8,74 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="dist/output.css" />
+    <style>
+      body {
+        background: url("images/B3.jpg") no-repeat center center fixed;
+        background-size: cover;
+      }
+      .spinBtn {
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+    </style>
   </head>
-  <body class="bg-bImg flex flex-col items-center relative h-[100vh] truncate">
+  <body class="flex flex-col items-center min-h-screen text-gray-800">
+    <!-- Header -->
     <header
-      class="bg-transparent flex items-center w-full h-14 mb-2 px-10 justify-between shadow-sm"
+      class="w-full bg-white bg-opacity-90 shadow-lg py-4 px-10 flex items-center justify-between"
     >
       <img
         width="110"
-        height="14"
+        height="20"
         src="https://gomycode.com/tn/wp-content/uploads/sites/26/2023/05/Logotype-1.svg"
         alt="Logo GomyCode"
       />
       <h1 class="text-2xl font-bold">Tirage au Sort</h1>
-
       <button
         id="reset"
         onclick="reset()"
         title="Réinitialiser la liste"
-        class="border border-customRed px-5 rounded-sm duration-300 font-semibold hover:bg-customRed hover:text-white"
+        class="border border-red-500 text-red-500 px-5 py-1 rounded hover:bg-red-500 hover:text-white transition duration-300"
       >
-        Reset
+        Réinitialiser
       </button>
     </header>
 
-    <div class="flex flex-col items-center w-full px-4">
-      <div class="flex items-center mb-4 w-full max-w-md">
+    <!-- Main Content -->
+    <main class="flex flex-col items-center w-full px-4 mt-10">
+      <!-- Input Section -->
+      <div class="flex items-center mb-6 w-full max-w-md">
         <input
           type="text"
           id="participantInput"
           placeholder="Entrez le nom du participant"
           aria-label="Nom du participant"
-          class="w-full border rounded p-2 mr-2 focus:ring-2 focus:ring-customRed focus:outline-none"
+          class="w-full border border-gray-300 rounded p-2 mr-2 focus:ring-2 focus:ring-red-500 focus:outline-none"
         />
         <button
           onclick="addParticipant()"
           title="Ajouter un participant"
-          class="bg-customRed text-white py-2 px-4 rounded hover:bg-red-700 focus:ring-2 focus:ring-red-700 focus:outline-none"
+          class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-300 focus:ring-2 focus:ring-red-500 focus:outline-none"
         >
           Ajouter
         </button>
       </div>
 
+      <!-- Wheel Section -->
       <div id="wheel-container" class="relative mb-8">
         <canvas
           id="wheel"
           width="500"
           height="500"
-          class="border-4 border-black rounded-full"
+          class="border-4 border-gray-800 rounded-full shadow-md"
         ></canvas>
         <div
           id="button-container"
@@ -65,47 +85,50 @@
             id="spinButton"
             onclick="spinWheel()"
             title="Tourner la roue"
-            class="w-24 h-24 font-bold border-2 border-black text-white bg-customRed rounded-full flex items-center justify-center spinBtn hover:animate-pulse focus:ring-2 focus:ring-red-700 focus:outline-none"
+            class="w-24 h-24 font-bold text-white bg-red-500 rounded-full flex items-center justify-center shadow-lg spinBtn focus:ring-2 focus:ring-red-500 focus:outline-none"
           >
-            Tourner la <br />
-            roue
+            Tourner
           </button>
         </div>
       </div>
 
-      <!-- Zone de notification -->
+      <!-- Notification Section -->
       <div
         id="notification"
-        class="hidden text-center text-white bg-green-500 px-4 py-2 rounded mb-4"
+        class="hidden text-center text-white bg-green-500 px-4 py-2 rounded mb-4 shadow-lg"
       ></div>
-    </div>
+    </main>
 
-    <!-- Modal pour afficher le résultat -->
+    <!-- Result Modal -->
     <div
       id="resultModal"
-      class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center"
+      class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center"
     >
       <div
-        class="bg-white p-10 rounded shadow-lg text-center relative max-w-md w-full"
+        class="bg-white p-8 rounded shadow-lg text-center relative max-w-md w-full"
       >
-        <span
-          class="absolute top-2 right-2 text-gray-500 cursor-pointer text-3xl"
+        <button
+          class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
           onclick="closeModal()"
           title="Fermer"
-          >&times;</span
         >
-        <p id="result" class="text-xl font-bold"></p>
+          &times;
+        </button>
+        <p id="result" class="text-xl font-bold text-gray-800"></p>
         <button
           onclick="closeModal()"
-          class="mt-10 bg-customRed text-white py-2 px-4 rounded hover:bg-red-700"
+          class="mt-6 bg-red-500 text-white py-2 px-6 rounded hover:bg-red-600 transition duration-300"
         >
           OK
         </button>
       </div>
     </div>
 
-    <footer class="absolute bottom-5 right-5">
-      <img src="images/signature.png" alt="Signature" class="w-15 h-8" />
+    <!-- Footer -->
+    <footer
+      class="w-full bg-white bg-opacity-90 py-4 text-center text-gray-600 text-sm mt-10"
+    >
+      <p>© 2024 GomyCode. Tous droits réservés.</p>
     </footer>
 
     <script src="dist/bundle.js"></script>
