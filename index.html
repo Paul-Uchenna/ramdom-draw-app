@@ -18,77 +18,96 @@
         width="110"
         height="14"
         src="https://gomycode.com/tn/wp-content/uploads/sites/26/2023/05/Logotype-1.svg"
-        alt=""
+        alt="Logo GomyCode"
       />
       <h1 class="text-2xl font-bold">Tirage au Sort</h1>
 
       <button
         id="reset"
         onclick="reset()"
+        title="Réinitialiser la liste"
         class="border border-customRed px-5 rounded-sm duration-300 font-semibold hover:bg-customRed hover:text-white"
       >
         Reset
       </button>
     </header>
 
-    <div class="flex items-center mb-4">
-      <input
-        type="text"
-        id="participantInput"
-        placeholder="Entrez le nom du participant"
-        class="w-80 border rounded p-2 mr-2"
-      />
-      <button
-        onclick="addParticipant()"
-        class="bg-customRed text-white py-2 px-4 rounded hover:bg-red-700"
-      >
-        Ajouter
-      </button>
-    </div>
-
-    <div id="wheel-container" class="relative mb-8">
-      <canvas
-        id="wheel"
-        width="500"
-        height="500"
-        class="border-4 border-black rounded-full"
-      ></canvas>
-      <div
-        id="button-container"
-        class="absolute inset-0 flex items-center justify-center"
-      >
+    <div class="flex flex-col items-center w-full px-4">
+      <div class="flex items-center mb-4 w-full max-w-md">
+        <input
+          type="text"
+          id="participantInput"
+          placeholder="Entrez le nom du participant"
+          aria-label="Nom du participant"
+          class="w-full border rounded p-2 mr-2 focus:ring-2 focus:ring-customRed focus:outline-none"
+        />
         <button
-          id="spinButton"
-          onclick="spinWheel()"
-          class="w-24 h-24 font-bold border-2 border-black text-white bg-customRed rounded-full flex items-center justify-center spinBtn"
+          onclick="addParticipant()"
+          title="Ajouter un participant"
+          class="bg-customRed text-white py-2 px-4 rounded hover:bg-red-700 focus:ring-2 focus:ring-red-700 focus:outline-none"
         >
-          Tourner la <br />
-          roue
+          Ajouter
         </button>
       </div>
+
+      <div id="wheel-container" class="relative mb-8">
+        <canvas
+          id="wheel"
+          width="500"
+          height="500"
+          class="border-4 border-black rounded-full"
+        ></canvas>
+        <div
+          id="button-container"
+          class="absolute inset-0 flex items-center justify-center"
+        >
+          <button
+            id="spinButton"
+            onclick="spinWheel()"
+            title="Tourner la roue"
+            class="w-24 h-24 font-bold border-2 border-black text-white bg-customRed rounded-full flex items-center justify-center spinBtn hover:animate-pulse focus:ring-2 focus:ring-red-700 focus:outline-none"
+          >
+            Tourner la <br />
+            roue
+          </button>
+        </div>
+      </div>
+
+      <!-- Zone de notification -->
+      <div
+        id="notification"
+        class="hidden text-center text-white bg-green-500 px-4 py-2 rounded mb-4"
+      ></div>
     </div>
 
-    <!-- Modal for displaying the result -->
+    <!-- Modal pour afficher le résultat -->
     <div
       id="resultModal"
       class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center"
     >
       <div
-        class="bg-white p-28 rounded shadow-lg text-center relative w-2/3 md:w-1/3"
+        class="bg-white p-10 rounded shadow-lg text-center relative max-w-md w-full"
       >
         <span
           class="absolute top-2 right-2 text-gray-500 cursor-pointer text-3xl"
           onclick="closeModal()"
+          title="Fermer"
           >&times;</span
         >
         <p id="result" class="text-xl font-bold"></p>
+        <button
+          onclick="closeModal()"
+          class="mt-10 bg-customRed text-white py-2 px-4 rounded hover:bg-red-700"
+        >
+          OK
+        </button>
       </div>
     </div>
 
     <footer class="absolute bottom-5 right-5">
-      <img src="images/signature.png" alt="" class="w-15 h-8" />
+      <img src="images/signature.png" alt="Signature" class="w-15 h-8" />
     </footer>
+
     <script src="dist/bundle.js"></script>
-    <!-- <script src="script.js"></script> -->
   </body>
 </html>
