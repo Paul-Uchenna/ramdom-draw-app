@@ -27,55 +27,56 @@
       }
     </style>
   </head>
-  <body class="flex flex-col items-center min-h-screen text-gray-800">
+  <body class="flex flex-col min-h-screen text-gray-800">
     <!-- Header -->
     <header
-      class="w-full bg-white bg-opacity-90 shadow-lg py-4 px-10 flex items-center justify-between"
+      class="w-full bg-white bg-opacity-90 shadow-lg py-4 px-4 md:px-10 flex flex-col md:flex-row items-center justify-between"
     >
       <img
         width="110"
-        height="20"
+        height="50"
         src="https://gomycode.com/tn/wp-content/uploads/sites/26/2023/05/Logotype-1.svg"
         alt="Logo GomyCode"
+        class="mb-4 object-cover md:mb-0"
       />
-      <h1 class="text-2xl font-bold">Tirage au Sort</h1>
+      <h1 class="text-md md:text-xl font-bold text-center">Tirage au Sort</h1>
       <button
         id="reset"
         onclick="reset()"
         title="Réinitialiser la liste"
-        class="border border-red-500 text-red-500 px-5 py-1 rounded hover:bg-red-500 hover:text-white transition duration-300"
+        class="mt-4 md:mt-0 border border-red-500 text-red-500 px-5 py-1 rounded hover:bg-red-500 hover:text-white transition-all duration-500"
       >
         Réinitialiser
       </button>
     </header>
 
     <!-- Main Content -->
-    <main class="flex flex-col items-center w-full px-4 mt-10">
+    <main class="flex flex-col items-center w-full flex-grow px-4 mt-10">
       <!-- Input Section -->
-      <div class="flex items-center mb-6 w-full max-w-md">
+      <div class="flex flex-col md:flex-row items-center mb-6 w-full max-w-md">
         <input
           type="text"
           id="participantInput"
           placeholder="Entrez le nom du participant"
           aria-label="Nom du participant"
-          class="w-full border border-gray-300 rounded p-2 mr-2 focus:ring-2 focus:ring-red-500 focus:outline-none"
+          class="w-full border border-gray-300 rounded p-2 mb-2 md:mb-0 md:mr-2 focus:ring-2 focus:ring-red-500 focus:outline-none"
         />
         <button
           onclick="addParticipant()"
           title="Ajouter un participant"
-          class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-300 focus:ring-2 focus:ring-red-500 focus:outline-none"
+          class="w-full md:w-auto bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-300 focus:ring-2 focus:ring-red-500 focus:outline-none"
         >
           Ajouter
         </button>
       </div>
 
       <!-- Wheel Section -->
-      <div id="wheel-container" class="relative mb-8">
+      <div id="wheel-container" class="relative mb-2">
         <canvas
           id="wheel"
           width="500"
           height="500"
-          class="border-4 border-gray-800 rounded-full shadow-md"
+          class="bg-gray-200 w-72 h-72 md:w-96 md:h-96 rounded-full shadow-md"
         ></canvas>
         <div
           id="button-container"
@@ -85,7 +86,7 @@
             id="spinButton"
             onclick="spinWheel()"
             title="Tourner la roue"
-            class="w-24 h-24 font-bold text-white bg-red-500 rounded-full flex items-center justify-center shadow-lg spinBtn focus:ring-2 focus:ring-red-500 focus:outline-none"
+            class="w-16 h-16 md:w-24 md:h-24 font-bold text-xs md:text-xl text-white bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center shadow-lg spinBtn focus:ring-2 focus:ring-red-500 focus:outline-none transition-all duration-300"
           >
             Tourner
           </button>
@@ -93,10 +94,10 @@
       </div>
 
       <!-- Notification Section -->
-      <div
+      <!-- <div
         id="notification"
         class="hidden text-center text-white bg-green-500 px-4 py-2 rounded mb-4 shadow-lg"
-      ></div>
+      ></div> -->
     </main>
 
     <!-- Result Modal -->
@@ -105,7 +106,7 @@
       class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center"
     >
       <div
-        class="bg-white p-8 rounded shadow-lg text-center relative max-w-md w-full"
+        class="bg-white p-8 rounded shadow-lg text-center relative max-w-md w-full mx-4"
       >
         <button
           class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
@@ -126,11 +127,10 @@
 
     <!-- Footer -->
     <footer
-      class="w-full bg-white bg-opacity-90 py-4 text-center text-gray-600 text-sm mt-10"
+      class="w-full bg-white bg-opacity-90 py-4 text-center text-gray-600 text-sm"
     >
       <p>© 2024 GomyCode. Tous droits réservés.</p>
     </footer>
-
     <script src="dist/bundle.js"></script>
   </body>
 </html>
