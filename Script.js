@@ -63,7 +63,7 @@ function drawWheel() {
     ctx.translate(radius, radius);
     ctx.rotate(angle + arc / 2);
     ctx.textAlign = "right";
-    ctx.fillStyle = "#000"; // Changez la couleur des noms ici
+    ctx.fillStyle = "#000"; //! Changez la couleur des noms ici
     ctx.font = "20px Arial";
     ctx.fillText(participants[i], radius - 10, 10);
     ctx.restore();
@@ -121,7 +121,7 @@ window.spinWheel = function () {
 function showResultModal(winner) {
   const modal = document.getElementById("resultModal");
   const resultText = document.getElementById("result");
-  resultText.innerHTML = `Félicitations à : ${winner}`;
+  resultText.innerHTML = `Félicitations : ${winner}`;
   modal.classList.remove("hidden");
   modal.classList.add("flex");
 
